@@ -45,3 +45,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Arrow
+    uniqueID: 2688284145
+    locked: 0
+  - name: Touch
+    uniqueID: 860212439
+    locked: 0

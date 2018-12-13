@@ -25,14 +25,16 @@ public class ArrowSpawner : MonoBehaviour
 	    if (spawnCyan != spawnPreCyan)
 	    {
 	        GameObject arrow = Instantiate(arrowCyanPrefab, transform);
-	        arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 5);
+	        arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -5);
+	        GameManager.Instance.ArrowGameObject[gameObject.tag].Add(arrow);
 	        spawnPreCyan = spawnCyan;
 	    }
 	    if (spawnPurple != spawnPrePurple)
 	    {
 	        GameObject arrow = Instantiate(arrowPurplePrefab, transform);
-	        arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 5);
-	        spawnPrePurple = spawnPurple;
+	        arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -5);
+	        GameManager.Instance.ArrowGameObject[gameObject.tag].Add(arrow);
+            spawnPrePurple = spawnPurple;
 	    }
     }
 }

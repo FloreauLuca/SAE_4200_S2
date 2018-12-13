@@ -15,4 +15,9 @@ public class Arrow : MonoBehaviour
 	void Update () {
 		
 	}
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.ArrowGameObject[gameObject.tag].Remove(gameObject);
+    }
 }
