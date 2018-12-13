@@ -48,17 +48,17 @@ public class Detector : MonoBehaviour
                 GameManager.Instance.AddScore(3);
                 Instantiate(textNullPrefab, transform);
             }
-            else if (GameManager.Instance.ArrowGameObject[gameObject.tag][0].transform.position.y - gameObject.transform.position.y < 1)
+            else if (GameManager.Instance.ArrowGameObject[gameObject.tag][0].transform.position.y - gameObject.transform.position.y < 0.5)
             {
                 GameManager.Instance.AddScore(3);
                 Instantiate(textPerfectPrefab, transform);
             }
-            else if (GameManager.Instance.ArrowGameObject[gameObject.tag][0].transform.position.y - gameObject.transform.position.y < 3)
+            else if (GameManager.Instance.ArrowGameObject[gameObject.tag][0].transform.position.y - gameObject.transform.position.y < 1)
             {
                 GameManager.Instance.AddScore(3);
                 Instantiate(textCoolPrefab, transform);
             }
-            else if (GameManager.Instance.ArrowGameObject[gameObject.tag][0].transform.position.y - gameObject.transform.position.y < 5)
+            else if (GameManager.Instance.ArrowGameObject[gameObject.tag][0].transform.position.y - gameObject.transform.position.y < 2)
             {
                 GameManager.Instance.AddScore(3);
                 Instantiate(textNicePrefab, transform);
