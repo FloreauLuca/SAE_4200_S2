@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{4f2e7334-5243-4efb-8660-247bf5d4bc33}">
+        <property name="assetPath">
+            <value>Komiku_-_06_-_School.mp3</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>54.909387755102038</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{86469b20-28df-4905-9aec-5442d21651b8}</destination>
+        </relationship>
+    </object>
+</objects>

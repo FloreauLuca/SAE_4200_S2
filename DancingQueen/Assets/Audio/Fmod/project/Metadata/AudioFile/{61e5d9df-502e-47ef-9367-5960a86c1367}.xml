@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{61e5d9df-502e-47ef-9367-5960a86c1367}">
+        <property name="assetPath">
+            <value>Shine.mp3</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>247.43183673469389</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{86469b20-28df-4905-9aec-5442d21651b8}</destination>
+        </relationship>
+    </object>
+</objects>

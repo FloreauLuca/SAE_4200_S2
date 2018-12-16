@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{0718555b-5fa2-4ecd-9581-6aac5e161a4c}">
+        <property name="assetPath">
+            <value>Abyss.mp3</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>22.0499992</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>57.443265306122449</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{86469b20-28df-4905-9aec-5442d21651b8}</destination>
+        </relationship>
+    </object>
+</objects>

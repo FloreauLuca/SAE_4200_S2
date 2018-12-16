@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{de0fe6ea-bbf7-4d88-8300-9a8d4711e031}">
+        <property name="assetPath">
+            <value>Round Clear  Penguin Land (FM Sound)  Master System  Soundtrack.ogg</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>18.023310657596372</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{86469b20-28df-4905-9aec-5442d21651b8}</destination>
+        </relationship>
+    </object>
+</objects>

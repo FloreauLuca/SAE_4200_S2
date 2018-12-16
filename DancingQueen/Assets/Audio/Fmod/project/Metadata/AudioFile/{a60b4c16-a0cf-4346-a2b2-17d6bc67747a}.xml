@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{a60b4c16-a0cf-4346-a2b2-17d6bc67747a}">
+        <property name="assetPath">
+            <value>Main Theme  Penguin Land (FM Sound)  Master System  Soundtrack.ogg</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>74.331451247165532</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{86469b20-28df-4905-9aec-5442d21651b8}</destination>
+        </relationship>
+    </object>
+</objects>
