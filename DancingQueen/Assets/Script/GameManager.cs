@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Slider scoreSlider;
 
     [SerializeField] private GameObject dancer;
     public GameObject Dancer
@@ -46,6 +48,9 @@ public class GameManager : MonoBehaviour
     private FMOD.Studio.ParameterInstance musicVelo;
     [SerializeField] private string musicEvent;
 
+    private int comboMultiplicator;
+    private float comboCount = 0;
+    [SerializeField] private GameObject comboText;
 
 
 
@@ -61,20 +66,21 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score : " + score;
 	    musicFmod = FMODUnity.RuntimeManager.CreateInstance(musicEvent);
         musicFmod.getParameter("Parameter 1", out musicVelo);
-	    musicFmod.start();
+	    //musicFmod.start();
 	}
 
     // Update is called once per frame
     void Update()
     {
-        //music.volume = musicVolume;
+        music.volume = musicVolume;
         musicVelo.setValue(score/500f);
     }
 
     public void AddScore(int point)
     {
-        score += point;
+        score += point*comboMultiplicator;
         scoreText.text = "Score : " + score;
+        scoreSlider.value = score;
     }
 
     public void Fail()
@@ -82,6 +88,38 @@ public class GameManager : MonoBehaviour
         dancer.GetComponentInChildren<SpriteRenderer>().sprite = fallingSprite;
         audioSource.Play();
         GetComponent<Animator>().SetTrigger("Scratch");
+        ComboCount(false);
     }
-    
+
+    public void ComboCount(bool perfect)
+    {
+        if (perfect)
+        {
+            comboCount++;
+        }
+        else
+        {
+            comboCount = 1;
+        }
+
+        if (comboCount >= 10)
+        {
+            comboMultiplicator = 2;
+            comboText.SetActive(true);
+            if (comboCount >= 20)
+            {
+                comboMultiplicator = 3;
+                if (comboCount >= 30)
+                {
+                    comboMultiplicator = 4;
+                }
+            }
+
+            comboText.GetComponent<TextMeshProUGUI>().text = "Combo x " + comboMultiplicator;
+        }
+        else
+        {
+            comboText.SetActive(false);
+        }
+    }
 }

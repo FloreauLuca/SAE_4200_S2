@@ -64,12 +64,14 @@ public class Detector : MonoBehaviour
                 GameManager.Instance.AddScore(0);
                 Instantiate(textNullPrefab, transform);
                 GameManager.Instance.Fail();
+
             }
             else if (GameManager.Instance.ArrowGameObject[gameObject.tag][0].transform.position.y - gameObject.transform.position.y < 0.5)
             {
                 GameManager.Instance.AddScore(3);
                 Instantiate(textPerfectPrefab, transform);
                 GameManager.Instance.Dancer.GetComponentInChildren<SpriteRenderer>().sprite = dancingSprite;
+                GameManager.Instance.ComboCount(true);
             }
             else if (GameManager.Instance.ArrowGameObject[gameObject.tag][0].transform.position.y - gameObject.transform.position.y < 1)
             {
