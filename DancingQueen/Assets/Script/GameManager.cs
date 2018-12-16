@@ -133,10 +133,9 @@ public class GameManager : MonoBehaviour
             comboText.SetActive(true);
 
             comboText.GetComponent<TextMeshProUGUI>().text = "Combo x " + comboMultiplicator;
+            if (comboMultiplicator > comboMax)
+                comboMax = comboMultiplicator;
         }
-
-        if (comboMultiplicator > comboMax)
-            comboMax = comboMultiplicator;
         else
         {
 

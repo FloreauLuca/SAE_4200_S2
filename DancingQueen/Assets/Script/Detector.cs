@@ -1,7 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Boo.Lang.Runtime;
 using UnityEngine;
 
 public class Detector : MonoBehaviour
@@ -52,7 +50,6 @@ public class Detector : MonoBehaviour
 
                 if (touch.phase == TouchPhase.Ended)
                 {
-                    SelectDown();
                     pressed = false;
                 }
             }
@@ -132,7 +129,7 @@ public class Detector : MonoBehaviour
     {
         if (pressedArrow)
         {
-            
+            Debug.DrawLine(transform.position, new Vector3(transform.position.x, pressedArrow.GetComponent<BoxCollider2D>().offset.y + pressedArrow.GetComponent<BoxCollider2D>().size.y + pressedArrow.transform.position.y));
             if ((pressedArrow.GetComponent<BoxCollider2D>().offset.y + pressedArrow.GetComponent<BoxCollider2D>().size.y + pressedArrow.transform.position.y) - gameObject.transform.position.y >= -1)
             {
                 if (pressed)

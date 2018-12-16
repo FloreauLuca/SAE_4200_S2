@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndMenuManager : MonoBehaviour {
     private static GlobalGameManager instance;
@@ -46,4 +47,25 @@ public class EndMenuManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void RestartButton()
+    {
+        if (GlobalGameManager.Instance.Difficulty == 1)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+        if (GlobalGameManager.Instance.Difficulty == 2)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+        if (GlobalGameManager.Instance.Difficulty == 3)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+    }
+
+    public void MenuButton()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
 }
