@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -52,8 +53,23 @@ public class GameManager : MonoBehaviour
     private float comboCount = 0;
     [SerializeField] private GameObject comboText;
 
+    private int perfectCount;
+    public int PerfectCount
+    { get { return perfectCount; } set { perfectCount = value; } }
+    private int goodCount;
+    public int GoodCount
+    { get { return goodCount; } set { goodCount = value; } }
+    private int okCount;
+    public int OkCount
+    { get { return okCount; } set { okCount = value; } }
+    private int wrongCount;
+    public int WrongCount
+    { get { return wrongCount; } set { wrongCount = value; } }
+    private int comboMax;
+    public int ComboMax
+    { get { return comboMax; } set { comboMax = value; } }
 
-
+    public bool end = false;
     // Use this for initialization
     void Start ()
 	{
@@ -74,10 +90,18 @@ public class GameManager : MonoBehaviour
     {
         music.volume = musicVolume;
         musicVelo.setValue(score/500f);
+        if (end)
+        {
+            End();
+        }
     }
 
     public void AddScore(int point)
     {
+        if (point == 1) { okCount++; }
+        if (point == 2) { goodCount++; }
+        if (point == 3) { perfectCount++; }
+
         score += point*comboMultiplicator;
         scoreText.text = "Score : " + score;
         scoreSlider.value = score;
@@ -85,6 +109,7 @@ public class GameManager : MonoBehaviour
 
     public void Fail()
     {
+        wrongCount++;
         dancer.GetComponentInChildren<SpriteRenderer>().sprite = fallingSprite;
         audioSource.Play();
         GetComponent<Animator>().SetTrigger("Scratch");
@@ -104,22 +129,32 @@ public class GameManager : MonoBehaviour
 
         if (comboCount >= 10)
         {
-            comboMultiplicator = 2;
+            comboMultiplicator = (int)comboCount/10+1;
             comboText.SetActive(true);
-            if (comboCount >= 20)
-            {
-                comboMultiplicator = 3;
-                if (comboCount >= 30)
-                {
-                    comboMultiplicator = 4;
-                }
-            }
 
             comboText.GetComponent<TextMeshProUGUI>().text = "Combo x " + comboMultiplicator;
         }
+
+        if (comboMultiplicator > comboMax)
+            comboMax = comboMultiplicator;
         else
         {
+
             comboText.SetActive(false);
         }
     }
+
+    public void End()
+    {
+        
+        GlobalGameManager.Instance.Score = score;
+        GlobalGameManager.Instance.PerfectCount = perfectCount;
+        GlobalGameManager.Instance.GoodCount = goodCount;
+        GlobalGameManager.Instance.OkCount = okCount;
+        GlobalGameManager.Instance.WrongCount = wrongCount;
+        GlobalGameManager.Instance.ComboMax = comboMax;
+        SceneManager.LoadScene("EndScene");
+    }
+
+    
 }
