@@ -263,6 +263,7 @@ MonoBehaviour:
   spawnCyan: 1
   spawnPurple: 1
   spawnLong: 0
+  speed: 5
 --- !u!4 &98340256
 Transform:
   m_ObjectHideFlags: 0
@@ -559,6 +560,7 @@ MonoBehaviour:
   spawnCyan: 1
   spawnPurple: 1
   spawnLong: 0
+  speed: 5
 --- !u!4 &511390763
 Transform:
   m_ObjectHideFlags: 0
@@ -933,69 +935,26 @@ PlayableDirector:
   m_GameObject: {fileID: 712399208}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 88ab34fa84053d045a9399c7278ad97b, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 169cf084507ce074baff9f929bf25d24, type: 2}
   m_InitialState: 1
-  m_WrapMode: 1
+  m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: 114619868104870828, guid: 88ab34fa84053d045a9399c7278ad97b, type: 2}
+  - key: {fileID: 114703966079055562, guid: 169cf084507ce074baff9f929bf25d24, type: 2}
     value: {fileID: 712399209}
-  - key: {fileID: 0}
-    value: {fileID: 1154586147}
-  - key: {fileID: 0}
-    value: {fileID: 1154586147}
-  - key: {fileID: 0}
-    value: {fileID: 1559505358}
-  - key: {fileID: 0}
-    value: {fileID: 98340254}
-  - key: {fileID: 0}
-    value: {fileID: 511390761}
-  - key: {fileID: 0}
-    value: {fileID: 1154586147}
-  - key: {fileID: 0}
-    value: {fileID: 1559505358}
-  - key: {fileID: 0}
-    value: {fileID: 98340254}
-  - key: {fileID: 0}
-    value: {fileID: 511390761}
-  - key: {fileID: 0}
-    value: {fileID: 1154586147}
-  - key: {fileID: 0}
-    value: {fileID: 1559505358}
-  - key: {fileID: 0}
-    value: {fileID: 98340254}
-  - key: {fileID: 0}
-    value: {fileID: 511390761}
-  - key: {fileID: 0}
+  - key: {fileID: 114980948883628244, guid: 169cf084507ce074baff9f929bf25d24, type: 2}
     value: {fileID: 1598397059}
-  - key: {fileID: 0}
-    value: {fileID: 342988686}
-  - key: {fileID: 114577255693040162, guid: 88ab34fa84053d045a9399c7278ad97b, type: 2}
-    value: {fileID: 1598397059}
-  - key: {fileID: 0}
-    value: {fileID: 0}
-  - key: {fileID: 0}
-    value: {fileID: 0}
-  - key: {fileID: 0}
-    value: {fileID: 0}
-  - key: {fileID: 0}
-    value: {fileID: 0}
-  - key: {fileID: 114334409096646468, guid: 88ab34fa84053d045a9399c7278ad97b, type: 2}
+  - key: {fileID: 114057902858399622, guid: 169cf084507ce074baff9f929bf25d24, type: 2}
     value: {fileID: 1154586147}
-  - key: {fileID: 114703144953227948, guid: 88ab34fa84053d045a9399c7278ad97b, type: 2}
+  - key: {fileID: 114467609106813474, guid: 169cf084507ce074baff9f929bf25d24, type: 2}
     value: {fileID: 1559505358}
-  - key: {fileID: 114147052840777092, guid: 88ab34fa84053d045a9399c7278ad97b, type: 2}
+  - key: {fileID: 114237821613669012, guid: 169cf084507ce074baff9f929bf25d24, type: 2}
     value: {fileID: 98340254}
-  - key: {fileID: 114750636943524526, guid: 88ab34fa84053d045a9399c7278ad97b, type: 2}
+  - key: {fileID: 114260499826593710, guid: 169cf084507ce074baff9f929bf25d24, type: 2}
     value: {fileID: 511390761}
-  - key: {fileID: 0}
-    value: {fileID: 0}
-  - key: {fileID: 114069842608776668, guid: 88ab34fa84053d045a9399c7278ad97b, type: 2}
-    value: {fileID: 342988685}
   m_ExposedReferences:
-    m_References:
-    - 0f074d2c7bcfda149ad3b03e1575b589: {fileID: 342988684}
+    m_References: []
 --- !u!4 &712399211
 Transform:
   m_ObjectHideFlags: 0
@@ -1742,6 +1701,7 @@ MonoBehaviour:
   spawnCyan: 1
   spawnPurple: 1
   spawnLong: 0
+  speed: 5
 --- !u!4 &1154586149
 Transform:
   m_ObjectHideFlags: 0
@@ -1912,6 +1872,7 @@ MonoBehaviour:
   spawnCyan: 1
   spawnPurple: 1
   spawnLong: 0
+  speed: 5
 --- !u!4 &1559505360
 Transform:
   m_ObjectHideFlags: 0

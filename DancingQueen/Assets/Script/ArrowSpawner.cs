@@ -52,7 +52,7 @@ public class ArrowSpawner : MonoBehaviour
 	    }
 	    else if (spawnPreLong && spawnLong)
 	    {
-	        arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size = new Vector2(arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size.x, arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size.y + Time.deltaTime*speed/35);
+	        arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size = new Vector2(arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size.x, arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size.y + Time.deltaTime*(speed*(7/5)));
 	        arrowLong.GetComponent<BoxCollider2D>().size = arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size*0.9f;
 	        arrowLong.GetComponent<BoxCollider2D>().offset = new Vector2( arrowLong.GetComponent<BoxCollider2D>().offset.x, (arrowLong.GetComponent<BoxCollider2D>().size.y)/2 -1);
 

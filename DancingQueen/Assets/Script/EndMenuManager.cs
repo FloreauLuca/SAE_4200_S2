@@ -52,7 +52,7 @@ public class EndMenuManager : MonoBehaviour {
     {
         if (GlobalGameManager.Instance.Difficulty == 1)
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("EasyScene");
         }
         if (GlobalGameManager.Instance.Difficulty == 2)
         {
@@ -60,7 +60,7 @@ public class EndMenuManager : MonoBehaviour {
         }
         if (GlobalGameManager.Instance.Difficulty == 3)
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("ExtremeScene");
         }
     }
 

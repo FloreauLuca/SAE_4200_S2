@@ -54,7 +54,7 @@ public class MenuManager : MonoBehaviour
 
     public void EasyButton()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("EasyScene");
         GlobalGameManager.Instance.Difficulty = 1;
     }
     public void HardButton()
@@ -64,7 +64,7 @@ public class MenuManager : MonoBehaviour
     }
     public void ExtremButton()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("ExtremeScene");
         GlobalGameManager.Instance.Difficulty = 3;
     }
 
