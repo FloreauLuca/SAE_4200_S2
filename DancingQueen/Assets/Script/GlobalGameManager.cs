@@ -28,7 +28,7 @@ public class GlobalGameManager : MonoBehaviour {
     private int score;
     public int Score
     { get { return score; } set { score = value; } }
-    private int difficulty;
+    private int difficulty = 1;
     public int Difficulty
     { get { return difficulty; } set { difficulty = value; } }
 

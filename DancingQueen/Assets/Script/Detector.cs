@@ -10,6 +10,7 @@ public class Detector : MonoBehaviour
     [SerializeField] private GameObject textNicePrefab;
     [SerializeField] private GameObject textCoolPrefab;
     [SerializeField] private GameObject textPerfectPrefab;
+    [SerializeField] private GameObject particulePressedPrefab;
     [SerializeField] private LayerMask raycastLayerMask;
     private SpriteRenderer sprite;
     [SerializeField] private Sprite dancingSprite;
@@ -54,7 +55,21 @@ public class Detector : MonoBehaviour
                 }
             }
         }
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (boxCollider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+            {
+                SelectDown();
+                pressed = true;
+            }
+        }
 
+        if (Input.GetMouseButtonUp(0))
+        {
+            pressed = false;
+        }
+        
         if (pressed)
         {
             sprite.color = Color.red;
@@ -129,17 +144,18 @@ public class Detector : MonoBehaviour
     {
         if (pressedArrow)
         {
-            Debug.DrawLine(transform.position, new Vector3(transform.position.x, pressedArrow.GetComponent<BoxCollider2D>().offset.y + pressedArrow.GetComponent<BoxCollider2D>().size.y + pressedArrow.transform.position.y));
             if ((pressedArrow.GetComponent<BoxCollider2D>().offset.y + pressedArrow.GetComponent<BoxCollider2D>().size.y + pressedArrow.transform.position.y) - gameObject.transform.position.y >= -1)
             {
                 if (pressed)
                 {
                     pressedArrow.GetComponent<Arrow>().ArrowPressed();
-                    Instantiate(textNicePrefab, transform);
+                    GameManager.Instance.AddScore(0.1f);
+                    Instantiate(particulePressedPrefab, transform);
                 }
                 else
                 {
                     pressedArrow.GetComponent<Arrow>().Tap();
+                    pressedArrow = null;
                 }
             }
             else

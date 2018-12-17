@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,8 +21,8 @@ public class GameManager : MonoBehaviour
         set { arrowGameObject = value; }
     }
 
-    private int score = 0;
-    public int Score
+    private float score = 0;
+    public float Score
     {
         get { return score; }
         set { score = value; }
@@ -45,11 +46,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float musicVolume;
 
-    private FMOD.Studio.EventInstance musicFmod;
-    private FMOD.Studio.ParameterInstance musicVelo;
-    [SerializeField] private string musicEvent;
-
-    private int comboMultiplicator;
+    private int comboMultiplicator = 1;
     private float comboCount = 0;
     [SerializeField] private GameObject comboText;
 
@@ -70,6 +67,9 @@ public class GameManager : MonoBehaviour
     { get { return comboMax; } set { comboMax = value; } }
 
     public bool end = false;
+
+    [SerializeField] private CinemachineVirtualCamera cinemachine;
+    private CinemachineBasicMultiChannelPerlin noise;
     // Use this for initialization
     void Start ()
 	{
@@ -80,23 +80,18 @@ public class GameManager : MonoBehaviour
 	    arrowGameObject.Add("Down", new List<GameObject>());
 	    arrowGameObject.Add("Right", new List<GameObject>());
         scoreText.text = "Score : " + score;
-	    musicFmod = FMODUnity.RuntimeManager.CreateInstance(musicEvent);
-        musicFmod.getParameter("Parameter 1", out musicVelo);
-	    //musicFmod.start();
-	}
+	    noise = cinemachine.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+    }
 
     // Update is called once per frame
     void Update()
     {
         music.volume = musicVolume;
-        musicVelo.setValue(score/500f);
         if (end)
-        {
-            End();
-        }
+        { End();}
     }
 
-    public void AddScore(int point)
+    public void AddScore(float point)
     {
         if (point == 1) { okCount++; }
         if (point == 2) { goodCount++; }
@@ -126,10 +121,9 @@ public class GameManager : MonoBehaviour
         {
             comboCount = 1;
         }
-
-        if (comboCount >= 10)
+        comboMultiplicator = (int)comboCount / 10 + 1;
+        if (comboMultiplicator>1)
         {
-            comboMultiplicator = (int)comboCount/10+1;
             comboText.SetActive(true);
 
             comboText.GetComponent<TextMeshProUGUI>().text = "Combo x " + comboMultiplicator;
@@ -138,7 +132,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-
             comboText.SetActive(false);
         }
     }
@@ -146,7 +139,7 @@ public class GameManager : MonoBehaviour
     public void End()
     {
         
-        GlobalGameManager.Instance.Score = score;
+        GlobalGameManager.Instance.Score = (int)score;
         GlobalGameManager.Instance.PerfectCount = perfectCount;
         GlobalGameManager.Instance.GoodCount = goodCount;
         GlobalGameManager.Instance.OkCount = okCount;

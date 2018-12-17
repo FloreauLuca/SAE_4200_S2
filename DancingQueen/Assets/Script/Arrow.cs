@@ -45,6 +45,5 @@ public class Arrow : MonoBehaviour
     public void ArrowPressed()
     {
         longSpriteRenderer.sprite = pressed;
-        GameManager.Instance.AddScore(1);
     }
 }

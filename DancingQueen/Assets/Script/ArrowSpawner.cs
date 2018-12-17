@@ -18,6 +18,8 @@ public class ArrowSpawner : MonoBehaviour
     private GameObject arrowLong;
 
     private float longTime;
+
+    [SerializeField] private float speed = 5;
 	// Use this for initialization
 	void Start ()
 	{
@@ -30,14 +32,14 @@ public class ArrowSpawner : MonoBehaviour
 	    if (spawnCyan != spawnPreCyan)
 	    {
 	        GameObject arrow = Instantiate(arrowCyanPrefab, transform);
-	        arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -5);
+	        arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed);
 	        GameManager.Instance.ArrowGameObject[gameObject.tag].Add(arrow);
 	        spawnPreCyan = spawnCyan;
 	    }
 	    if (spawnPurple != spawnPrePurple)
 	    {
 	        GameObject arrow = Instantiate(arrowPurplePrefab, transform);
-	        arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -5);
+	        arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed);
 	        GameManager.Instance.ArrowGameObject[gameObject.tag].Add(arrow);
             spawnPrePurple = spawnPurple;
 	    }
@@ -45,12 +47,12 @@ public class ArrowSpawner : MonoBehaviour
 	    if (!spawnPreLong && spawnLong)
 	    {
 	        arrowLong = Instantiate(arrowLongPrefab, transform);
-	        arrowLong.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -5);
+	        arrowLong.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed);
 	        GameManager.Instance.ArrowGameObject[gameObject.tag].Add(arrowLong);
 	    }
 	    else if (spawnPreLong && spawnLong)
 	    {
-	        arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size = new Vector2(arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size.x, arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size.y + Time.deltaTime*7);
+	        arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size = new Vector2(arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size.x, arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size.y + Time.deltaTime*speed/35);
 	        arrowLong.GetComponent<BoxCollider2D>().size = arrowLong.GetComponent<Arrow>().LongSpriteRenderer.size*0.9f;
 	        arrowLong.GetComponent<BoxCollider2D>().offset = new Vector2( arrowLong.GetComponent<BoxCollider2D>().offset.x, (arrowLong.GetComponent<BoxCollider2D>().size.y)/2 -1);
 
