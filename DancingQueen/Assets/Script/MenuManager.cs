@@ -11,13 +11,14 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject menuCanvas;
     [SerializeField] private GameObject selectCanvas;
     [SerializeField] private GameObject titleCanvas;
-
+    [SerializeField] private GameObject instructionCanvas;
     // Use this for initialization
     void Start ()
     {
         currentCanvas = titleCanvas;
         selectCanvas.SetActive(false);
         menuCanvas.SetActive(false);
+        instructionCanvas.SetActive(false);
         //optionCanvas.SetActive(false);
     }
 	
@@ -34,6 +35,13 @@ public class MenuManager : MonoBehaviour
     }
 
     public void PlayButton()
+    {
+        currentCanvas.SetActive(false);
+        currentCanvas = instructionCanvas;
+        currentCanvas.SetActive(true);
+    }
+
+    public void InstructionButton()
     {
         currentCanvas.SetActive(false);
         currentCanvas = selectCanvas;

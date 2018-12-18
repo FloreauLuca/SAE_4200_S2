@@ -197,7 +197,7 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+  spritePackingTag: tag
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 

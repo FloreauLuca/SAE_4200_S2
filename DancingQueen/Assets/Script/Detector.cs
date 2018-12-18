@@ -55,7 +55,7 @@ public class Detector : MonoBehaviour
                 }
             }
         }
-        
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             if (boxCollider2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
@@ -64,7 +64,7 @@ public class Detector : MonoBehaviour
                 pressed = true;
             }
         }
-
+        */
         if (Input.GetMouseButtonUp(0))
         {
             pressed = false;
@@ -144,8 +144,9 @@ public class Detector : MonoBehaviour
     {
         if (pressedArrow)
         {
-            if ((pressedArrow.GetComponent<BoxCollider2D>().offset.y + pressedArrow.GetComponent<BoxCollider2D>().size.y + pressedArrow.transform.position.y) - gameObject.transform.position.y >= -1)
+            if ((pressedArrow.GetComponent<BoxCollider2D>().offset.y + pressedArrow.GetComponent<BoxCollider2D>().size.y/2 + pressedArrow.transform.position.y) - gameObject.transform.position.y >= 0.5)
             {
+               
                 if (pressed)
                 {
                     pressedArrow.GetComponent<Arrow>().ArrowPressed();
